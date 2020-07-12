@@ -100,15 +100,15 @@ const arrayOfWords = [
   "you",
   "your"
 ]
-
-window.addEventListener("load", addSpans(50));
-
 // global variables
 var start = 0
 var index = 0
 var wordArray = []
 var correctWords = []
 var wrongWords = []
+
+// set default number of words
+window.addEventListener("load", addSpans(50));
 
 function getRandomWords(number) {
   var randomWords = [];
@@ -134,12 +134,19 @@ function addSpans(number) {
     var parentDiv = document.getElementById("rndmWords");
     parentDiv.appendChild(newSpan);
   }
-
   wordArray = randomWords;
+}
+
+function reset() {
+  index = 0;
+  start = 0;
+  correctWords = [];
+  wrongWords = [];
 }
 
 function removeSpans() {
   $("#rndmWords").empty();
+  reset();
 }
 
 document.querySelector("#inputField").addEventListener('keydown', e => {
@@ -189,10 +196,7 @@ function lastWord() {
    document.getElementById("wpm").innerHTML = "WPM : " + Math.round(wpm);
    document.getElementById("acc").innerHTML = "Accuracy : " + Math.floor(acc) + "%";
 
-   index = 0;
-   start = 0;
-   correctWords = [];
-   wrongWords = [];
+   reset();
 }
 
 function correctChars() {
