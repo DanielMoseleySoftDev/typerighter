@@ -1,0 +1,127 @@
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #596e79;
+}
+
+h1{
+  text-align: center;
+  color: #f0ece3;
+  font-size: 30px;
+  margin: 25px 0 100px;
+  font-weight: 900;
+}
+
+span{
+  margin: 6px 2px 6px 0;
+  font-size: 20px;
+}
+
+/* Main user area */
+.text-area {
+  margin: 5% 25%;
+  color: #f0ece3;
+}
+
+/* Input field */
+.inputs {
+  position: absolute;
+  width: 50%;
+  margin: 10px 0;
+}
+
+.inputField {
+  text-align: left;
+  width: 92%;
+  font-size: 1.5rem;
+  background-color: #fff;
+  border-width:0;
+  border:none;
+}
+
+.inputField:focus{
+  border: none;
+  border-radius: 0;
+  border-style: none;
+}
+
+/* Button */
+.inputButton {
+  color: #f0ece3;
+  border-color: #f0ece3;
+  position: relative;
+  bottom: 5px;
+  left: 2px;
+}
+
+.inputButton:hover {
+  color: #dfd3c3;
+  border-color: #dfd3c3;
+}
+
+/* Word Count */
+.word-count-group{
+  display: inline-block;
+  padding: 5px;
+}
+
+.word-count-options {
+  padding-bottom: 5px;
+  color: #f0ece3;
+  background-color: #596e79;
+  border: none;
+  font-size: 18px;
+}
+
+.word-count-options:hover, .active {
+  background-color: #dfd3c3;
+  color: #f0ece3;
+}
+
+.random-words {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Performance Values */
+.performance-group{
+  float: right;
+  text-align: right;
+  padding-top: 15px;
+}
+
+.performance-value{
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+
+/* Footer Section */
+footer{
+  text-align: center;
+  padding: 3% 15% 2%;
+}
+
+.icon{
+  margin: 5px 15px;
+  color: #f0ece3;
+}
+
+.icon:hover{
+  color: #dfd3c3;
+  text-decoration: none;
+}
+
+.copyright{
+  margin-top: 15px;
+  font-size: 11px;
+  color: #f0ece3;
+}
+
+/* Answer classes */
+.word-correct{
+  color:green;
+}
+
+.word-wrong{
+  color:red;
+}
