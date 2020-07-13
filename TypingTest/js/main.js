@@ -135,8 +135,10 @@ function addSpans(number) {
     parentDiv.appendChild(newSpan);
   }
   wordArray = randomWords;
+  document.getElementById("inputField").focus();
 }
 
+// reset global variables
 function reset() {
   index = 0;
   start = 0;
@@ -144,9 +146,16 @@ function reset() {
   wrongWords = [];
 }
 
+// remove all word spans and reset global variables
 function removeSpans() {
   $("#rndmWords").empty();
   reset();
+}
+
+function resetButton() {
+  var currentWordLength = wordArray.length - 1;
+  removeSpans();
+  addSpans(currentWordLength);
 }
 
 document.querySelector("#inputField").addEventListener('keydown', e => {
