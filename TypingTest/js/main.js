@@ -119,6 +119,7 @@ function getRandomWords(number) {
 }
 
 function addSpans(number) {
+  alert("hello");
   var randomWords = getRandomWords(number);
 
   for (var i = 0; i <= number; i++) {
@@ -134,12 +135,16 @@ function addSpans(number) {
     var parentDiv = document.getElementById("rndmWords");
     parentDiv.appendChild(newSpan);
   }
+  alert("hello2");
+
   wordArray = randomWords;
   document.getElementById("inputField").focus();
 }
 
 // reset global variables and empty input field
 function reset() {
+  alert("hello3");
+
   index = 0;
   start = 0;
   correctWords = [];
@@ -149,8 +154,11 @@ function reset() {
 
 // remove all word spans and reset global variables
 function removeSpans() {
+  alert("hello4");
+
   $("#rndmWords").empty();
   reset();
+  document.getElementById("inputField").focus();
 }
 
 function resetButton() {
