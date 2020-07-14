@@ -100,6 +100,7 @@ const arrayOfWords = [
   "you",
   "your"
 ]
+
 // global variables
 var start = 0
 var index = 0
@@ -134,8 +135,10 @@ function addSpans(number) {
     var parentDiv = document.getElementById("rndmWords");
     parentDiv.appendChild(newSpan);
   }
+
   wordArray = randomWords;
-  document.getElementById("inputField").focus();
+  $("#inputField").value = "";
+  $("#inputField").focus();
 }
 
 // reset global variables and empty input field
@@ -151,7 +154,6 @@ function reset() {
 function removeSpans() {
   $("#rndmWords").empty();
   reset();
-  document.getElementById("inputField").focus();
 }
 
 function resetButton() {
