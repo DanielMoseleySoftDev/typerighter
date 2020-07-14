@@ -138,12 +138,13 @@ function addSpans(number) {
   document.getElementById("inputField").focus();
 }
 
-// reset global variables
+// reset global variables and empty input field
 function reset() {
   index = 0;
   start = 0;
   correctWords = [];
   wrongWords = [];
+  document.getElementById("inputField").value = "";
 }
 
 // remove all word spans and reset global variables
