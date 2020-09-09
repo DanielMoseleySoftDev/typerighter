@@ -1,3 +1,107 @@
+const arrayOfWords = [
+  "a",
+  "about",
+  "all",
+  "also",
+  "and",
+  "as",
+  "at",
+  "be",
+  "because",
+  "but",
+  "by",
+  "can",
+  "come",
+  "could",
+  "day",
+  "do",
+  "even",
+  "find",
+  "first",
+  "for",
+  "from",
+  "get",
+  "give",
+  "go",
+  "have",
+  "he",
+  "her",
+  "here",
+  "him",
+  "his",
+  "how",
+  "I",
+  "if",
+  "in",
+  "into",
+  "it",
+  "its",
+  "just",
+  "know",
+  "like",
+  "look",
+  "make",
+  "man",
+  "many",
+  "me",
+  "more",
+  "my",
+  "new",
+  "no",
+  "not",
+  "now",
+  "of",
+  "on",
+  "one",
+  "only",
+  "or",
+  "other",
+  "our",
+  "out",
+  "people",
+  "say",
+  "see",
+  "she",
+  "so",
+  "some",
+  "take",
+  "tell",
+  "than",
+  "that",
+  "the",
+  "their",
+  "them",
+  "then",
+  "there",
+  "these",
+  "they",
+  "thing",
+  "think",
+  "this",
+  "those",
+  "time",
+  "to",
+  "two",
+  "up",
+  "use",
+  "very",
+  "want",
+  "way",
+  "we",
+  "well",
+  "what",
+  "when",
+  "which",
+  "who",
+  "will",
+  "with",
+  "would",
+  "year",
+  "you",
+  "your"
+]
+
+window.addEventListener("load", addSpans(50));
 
 // global variables
 var start = 0
@@ -5,9 +109,6 @@ var index = 0
 var wordArray = []
 var correctWords = []
 var wrongWords = []
-
-// set default number of words
-window.addEventListener("load", addSpans(50));
 
 function getRandomWords(number) {
   var randomWords = [];
@@ -35,29 +136,10 @@ function addSpans(number) {
   }
 
   wordArray = randomWords;
-  $("#inputField").value = "";
-  $("#inputField").focus();
 }
 
-// reset global variables and empty input field
-function reset() {
-  index = 0;
-  start = 0;
-  correctWords = [];
-  wrongWords = [];
-  document.getElementById("inputField").value = "";
-}
-
-// remove all word spans and reset global variables
 function removeSpans() {
   $("#rndmWords").empty();
-  reset();
-}
-
-function resetButton() {
-  var currentWordLength = wordArray.length - 1;
-  removeSpans();
-  addSpans(currentWordLength);
 }
 
 document.querySelector("#inputField").addEventListener('keydown', e => {
@@ -107,7 +189,10 @@ function lastWord() {
    document.getElementById("wpm").innerHTML = "WPM : " + Math.round(wpm);
    document.getElementById("acc").innerHTML = "Accuracy : " + Math.floor(acc) + "%";
 
-   reset();
+   index = 0;
+   start = 0;
+   correctWords = [];
+   wrongWords = [];
 }
 
 function correctChars() {

@@ -111,6 +111,10 @@ footer{
   text-decoration: none;
 }
 
+.footerSpan{
+  color: #dfd3c3;
+}
+
 .copyright{
   margin-top: 15px;
   font-size: 11px;
@@ -119,9 +123,9 @@ footer{
 
 /* Answer classes */
 .word-correct{
-  color: #6ecb25;
+  color:green;
 }
 
 .word-wrong{
-  color: #cb2525;
+  color:red;
 }
