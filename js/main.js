@@ -1,4 +1,3 @@
-window.addEventListener("load", addSpans(50));
 
 // global variables
 var start = 0
@@ -6,6 +5,9 @@ var index = 0
 var wordArray = []
 var correctWords = []
 var wrongWords = []
+
+// set default number of words
+window.addEventListener("load", addSpans(50));
 
 function getRandomWords(number) {
   var randomWords = [];
@@ -33,10 +35,29 @@ function addSpans(number) {
   }
 
   wordArray = randomWords;
+  $("#inputField").value = "";
+  $("#inputField").focus();
 }
 
+// reset global variables and empty input field
+function reset() {
+  index = 0;
+  start = 0;
+  correctWords = [];
+  wrongWords = [];
+  document.getElementById("inputField").value = "";
+}
+
+// remove all word spans and reset global variables
 function removeSpans() {
   $("#rndmWords").empty();
+  reset();
+}
+
+function resetButton() {
+  var currentWordLength = wordArray.length - 1;
+  removeSpans();
+  addSpans(currentWordLength);
 }
 
 document.querySelector("#inputField").addEventListener('keydown', e => {
@@ -86,10 +107,7 @@ function lastWord() {
    document.getElementById("wpm").innerHTML = "WPM : " + Math.round(wpm);
    document.getElementById("acc").innerHTML = "Accuracy : " + Math.floor(acc) + "%";
 
-   index = 0;
-   start = 0;
-   correctWords = [];
-   wrongWords = [];
+   reset();
 }
 
 function correctChars() {

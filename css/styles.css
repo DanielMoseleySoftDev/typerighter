@@ -111,8 +111,8 @@ footer{
   text-decoration: none;
 }
 
-.footerSpan{
-  color: #dfd3c3;
+.footer-span{
+  color: #f0ece3;
 }
 
 .copyright{
@@ -123,9 +123,9 @@ footer{
 
 /* Answer classes */
 .word-correct{
-  color:green;
+  color: #6ecb25;
 }
 
 .word-wrong{
-  color:red;
+  color: #cb2525;
 }
