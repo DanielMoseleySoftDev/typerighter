@@ -18,15 +18,14 @@ span{
 
 /* Main user area */
 .text-area {
-  margin: 5% 25%;
   color: #f0ece3;
+  align-items: center;
 }
 
 /* Input field */
 .inputs {
-  position: absolute;
-  width: 50%;
-  margin: 10px 0;
+  margin: 10px auto;
+  display: flex;
 }
 
 .inputField {
@@ -49,8 +48,7 @@ span{
   color: #f0ece3;
   border-color: #f0ece3;
   position: relative;
-  bottom: 5px;
-  left: 2px;
+  margin-left: 5px;
 }
 
 .inputButton:hover {
