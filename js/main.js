@@ -9,6 +9,22 @@ var wrongWords = []
 // set default number of words
 window.addEventListener("load", addSpans(50));
 
+// words or sentence options view control
+function sentenceView() {
+  const wordCountOptions = document.getElementById("wordCountGroup");
+  const sentenceCountOptions = document.getElementById("sentenceCountGroup");
+  wordCountOptions.style.display = "none";
+  sentenceCountOptions.style.display = "inline-block";
+
+}
+
+function wordView() {
+  const wordCountOptions = document.getElementById("wordCountGroup");
+  const sentenceCountOptions = document.getElementById("sentenceCountGroup");
+  sentenceCountOptions.style.display = "none";
+  wordCountOptions.style.display = "inline-block";
+}
+
 function getRandomWords(number) {
   var randomWords = [];
   for (var i = 0; i <= number; i++) {

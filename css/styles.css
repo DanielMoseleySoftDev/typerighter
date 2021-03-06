@@ -62,7 +62,14 @@ span{
   padding: 5px;
 }
 
-.word-count-options {
+/* Sentence Count */
+.sentence-count-group{
+  display: none;
+  padding: 5px;
+}
+
+/* General Count Options */
+.count-options {
   padding-bottom: 5px;
   color: #f0ece3;
   background-color: #596e79;
@@ -70,11 +77,10 @@ span{
   font-size: 18px;
 }
 
-.word-count-options:hover, .active {
+.count-options:hover, .active {
   background-color: #dfd3c3;
   color: #f0ece3;
 }
-
 .random-words {
   background-color: #fff;
   color: #333;
