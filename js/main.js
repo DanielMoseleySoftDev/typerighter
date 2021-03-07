@@ -1,10 +1,11 @@
-
 // global variables
 var start = 0
 var index = 0
 var wordArray = []
+var sentencesArray = []
 var correctWords = []
 var wrongWords = []
+var isWordTest = true;
 
 // set default number of words
 window.addEventListener("load", addSpans(50));
@@ -15,7 +16,7 @@ function sentenceView() {
   const sentenceCountOptions = document.getElementById("sentenceCountGroup");
   wordCountOptions.style.display = "none";
   sentenceCountOptions.style.display = "inline-block";
-
+  isWordTest = false;
 }
 
 function wordView() {
@@ -23,6 +24,7 @@ function wordView() {
   const sentenceCountOptions = document.getElementById("sentenceCountGroup");
   sentenceCountOptions.style.display = "none";
   wordCountOptions.style.display = "inline-block";
+  isWordTest = true;
 }
 
 function getRandomWords(number) {
@@ -33,9 +35,30 @@ function getRandomWords(number) {
   return randomWords;
 }
 
-function addSpans(number) {
-  var randomWords = getRandomWords(number);
+function getRandomSentences(number) {
+  var randomSentences = [];
+  for (var i = 0; i < number; i++) {
+    randomSentences.push(quotes[Math.floor(Math.random() * quotes.length)]);
+  }
+  return randomSentences;
+}
 
+function breakSentences(sentences) {
+  var brokenSentences = [];
+  var words = [];
+  sentences.forEach(sentence => {
+    brokenSentences.push(sentence.Quote.split(/\s+/));
+  });
+  brokenSentences.forEach(sentence => {
+    sentence.forEach(word => {
+      words.push(word);
+    })
+  })
+  return words;
+}
+
+function wordTest(number) {
+  var randomWords = getRandomWords(number);
   for (var i = 0; i <= number; i++) {
     // create new span and create content for it using random word array
     var newSpan = document.createElement("span");
@@ -48,9 +71,34 @@ function addSpans(number) {
     // add new span to div on page
     var parentDiv = document.getElementById("rndmWords");
     parentDiv.appendChild(newSpan);
+    wordArray = randomWords;
   }
+}
 
-  wordArray = randomWords;
+function sentenceTest(number) {
+  var randomSentences = getRandomSentences(number);
+  var randomWords = breakSentences(randomSentences);
+  for (var i = 0; i < randomWords.length; i++) {
+    var newSpan = document.createElement("span");
+    newSpan.setAttribute("id", "span" + i);
+    var spanContent = document.createTextNode(randomWords[i] + " ");
+
+    // add word to span
+    newSpan.appendChild(spanContent);
+
+    // add new span to div on page
+    var parentDiv = document.getElementById("rndmWords");
+    parentDiv.appendChild(newSpan);
+    wordArray = randomWords;
+  }
+}
+
+function addSpans(number) {
+  if (isWordTest) {
+    wordTest(number);
+  } else {
+    sentenceTest(number)
+  }
   $("#inputField").value = "";
   $("#inputField").focus();
 }
@@ -106,24 +154,23 @@ document.querySelector("#inputField").addEventListener('keydown', e => {
     // increment index to allow comparison of next word and clear input field
     index++;
     document.querySelector("#inputField").value = '';
-
   }
 })
 
 function lastWord() {
-   // diff in time in seconds for typing
-   var diff = (Date.now() - start) / 1000;
-   var mins = diff / 60;
+  // diff in time in seconds for typing
+  var diff = (Date.now() - start) / 1000;
+  var mins = diff / 60;
 
-   // calculate wpm and acc
-   var chars = correctChars();
-   var wpm = (chars/5) / mins;
-   var acc = (correctWords.length / wordArray.length) * 100;
+  // calculate wpm and acc
+  var chars = correctChars();
+  var wpm = (chars / 5) / mins;
+  var acc = (correctWords.length / wordArray.length) * 100;
 
-   document.getElementById("wpm").innerHTML = "WPM : " + Math.round(wpm);
-   document.getElementById("acc").innerHTML = "Accuracy : " + Math.floor(acc) + "%";
+  document.getElementById("wpm").innerHTML = "WPM : " + Math.round(wpm);
+  document.getElementById("acc").innerHTML = "Accuracy : " + Math.floor(acc) + "%";
 
-   reset();
+  reset();
 }
 
 function correctChars() {
