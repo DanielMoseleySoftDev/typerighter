@@ -5,6 +5,7 @@ var wordArray = []
 var sentencesArray = []
 var correctWords = []
 var wrongWords = []
+var authors = [] // TODO could make this a set?
 var isWordTest = true;
 
 // set default number of words
@@ -19,6 +20,7 @@ function sentenceView() {
   wordCountOptions.style.display = "none";
   sentenceCountOptions.style.display = "inline-block";
   isWordTest = false;
+  resetButton();
 }
 
 function wordView() {
@@ -29,6 +31,7 @@ function wordView() {
   sentenceCountOptions.style.display = "none";
   wordCountOptions.style.display = "inline-block";
   isWordTest = true;
+  resetButton();
 }
 
 function getRandomWords(number) {
@@ -52,6 +55,7 @@ function breakSentences(sentences) {
   var words = [];
   sentences.forEach(sentence => {
     brokenSentences.push(sentence.Quote.split(/\s+/));
+    authors.push(" " + sentence.Author);
   });
   brokenSentences.forEach(sentence => {
     sentence.forEach(word => {
@@ -82,6 +86,7 @@ function wordTest(number) {
 function sentenceTest(number) {
   var randomSentences = getRandomSentences(number);
   var randomWords = breakSentences(randomSentences);
+  $("#author").text("Quote(s) by: " + authors);
   for (var i = 0; i < randomWords.length; i++) {
     var newSpan = document.createElement("span");
     newSpan.setAttribute("id", "span" + i);
@@ -113,6 +118,7 @@ function reset() {
   start = 0;
   correctWords = [];
   wrongWords = [];
+  authors = [];
   document.getElementById("inputField").value = "";
 }
 
