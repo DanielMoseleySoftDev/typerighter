@@ -20,67 +20,74 @@
   <h1>typerighter</h1>
 
   <!-- Material input -->
-  <div class="container">
+  <div class="container center-options">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn shadow-none count-options active" type="button" onclick="wordView()" >
+      <label class="btn shadow-none count-options active" type="button" onclick="wordView()">
         <input type="radio" name="test-type" id="word-test" autocomplete="off" checked> Words
       </label>
-      <label class="btn shadow-none count-options"  type="button" onclick="sentenceView()">
+      <label class="btn shadow-none count-options" type="button" onclick="sentenceView()">
         <input type="radio" name="test-type" id="sentence-test" autocomplete="off"> Sentences
       </label>
     </div>
   </div>
 
-  <div class="text-area container">
-    <div class="btn-group btn-group-toggle word-count-group" id="wordCountGroup" data-toggle="buttons">
-      <label class="btn shadow-none count-options" onclick="removeSpans(); addSpans(10)">
-        <input type="radio" name="options" id="option1" autocomplete="off"> 10
-      </label>
-      <label class="btn shadow-none count-options" onclick="removeSpans(); addSpans(25)">
-        <input type="radio" name="options" id="option2" autocomplete="off"> 25
-      </label>
-      <label class="btn shadow-none count-options active" onclick="removeSpans(); addSpans(50)">
-        <input type="radio" name="options" id="option3" autocomplete="off" checked> 50
-      </label>
-      <label class="btn shadow-none count-options" onclick="removeSpans(); addSpans(100)">
-        <input type="radio" name="options" id="option2" autocomplete="off"> 100
-      </label>
-      <label class="btn shadow-none count-options" onclick="removeSpans(); addSpans(250)">
-        <input type="radio" name="options" id="option2" autocomplete="off"> 250
-      </label>
+  <div class="container text-area center-options">
+    <div class="row justify-content-center">
+        <div class="btn-group btn-group-toggle word-count-group" id="wordCountGroup" data-toggle="buttons">
+          <label class="btn shadow-none count-options" onclick="removeSpans(); addSpans(10)">
+            <input type="radio" name="options" id="option1" autocomplete="off"> 10
+          </label>
+          <label class="btn shadow-none count-options" onclick="removeSpans(); addSpans(25)">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 25
+          </label>
+          <label class="btn shadow-none count-options active" onclick="removeSpans(); addSpans(50)">
+            <input type="radio" name="options" id="option3" autocomplete="off" checked> 50
+          </label>
+          <label class="btn shadow-none count-options" onclick="removeSpans(); addSpans(100)">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 100
+          </label>
+          <label class="btn shadow-none count-options" onclick="removeSpans(); addSpans(250)">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 250
+          </label>
+        </div>
+
+        <div class="btn-group btn-group-toggle sentence-count-group" id="sentenceCountGroup" data-toggle="buttons">
+          <label class="btn shadow-none count-options" id="sentenceOption1" onclick="removeSpans(); addSpans(1)">
+            <input type="radio" name="options" autocomplete="off"> 1
+          </label>
+          <label class="btn shadow-none count-options" id="sentenceOption2" onclick="removeSpans(); addSpans(5)">
+            <input type="radio" name="options" autocomplete="off"> 5
+          </label>
+          <label class="btn shadow-none count-options active" id="sentenceOption3" onclick="removeSpans(); addSpans(10)">
+            <input type="radio" name="options" autocomplete="off" checked> 10
+          </label>
+          <label class="btn shadow-none count-options" id="sentenceOption4" onclick="removeSpans(); addSpans(15)">
+            <input type="radio" name="options" autocomplete="off"> 15
+          </label>
+          <label class="btn shadow-none count-options" id="sentenceOption5" onclick="removeSpans(); addSpans(20)">
+            <input type="radio" name="options" autocomplete="off"> 20
+          </label>
+        </div>
     </div>
 
-    <div class="btn-group btn-group-toggle sentence-count-group" id="sentenceCountGroup" data-toggle="buttons">
-      <label class="btn shadow-none count-options" onclick="removeSpans(); addSpans(1)">
-        <input type="radio" name="options" id="option1" autocomplete="off"> 1
-      </label>
-      <label class="btn shadow-none count-options" onclick="removeSpans(); addSpans(5)">
-        <input type="radio" name="options" id="option2" autocomplete="off"> 5
-      </label>
-      <label class="btn shadow-none count-options active" onclick="removeSpans(); addSpans(10)">
-        <input type="radio" name="options" id="option3" autocomplete="off" checked> 10
-      </label>
-      <label class="btn shadow-none count-options" onclick="removeSpans(); addSpans(15)">
-        <input type="radio" name="options" id="option2" autocomplete="off"> 15
-      </label>
-      <label class="btn shadow-none count-options" onclick="removeSpans(); addSpans(20)">
-        <input type="radio" name="options" id="option2" autocomplete="off"> 20
-      </label>
+    <div class="row">
+      <div class="col-auto mr-auto">
+        <h5 class="author" id="author">Quote by:</h5>
+      </div>
+      <div class="col-auto performance-group">
+        <span class="performance-value" id="wpm">WPM : ?</span>
+        /
+        <span class="performance-value" id="acc">Accuracy : ?</span>
+      </div>
     </div>
+  </div>
 
+  <div id="rndmWords" class="random-words container"></div>
 
-    <div class="performance-group">
-      <span class="performance-value" id="wpm">WPM : ?</span>
-      /
-      <span class="performance-value" id="acc">Accuracy : ?</span>
-    </div>
-
-    <div id="rndmWords" class="random-words container"></div>
-
-    <div class="inputs container">
-      <input type="text" class="inputField" id="inputField" placeholder="type here..." autocomplete="off">
-      <button type="submit" class="btn inputButton" onclick="resetButton()">Reset</button>
-    </div>
+  <div class="inputs container">
+    <input type="text" class="inputField" id="inputField" placeholder="type here..." autocomplete="off">
+    <button type="submit" class="btn inputButton" onclick="resetButton()">Reset</button>
+  </div>
 
   </div>
 

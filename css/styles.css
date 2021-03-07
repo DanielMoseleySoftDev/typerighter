@@ -22,6 +22,10 @@ span{
   align-items: center;
 }
 
+.center-options {
+  text-align: center;
+}
+
 /* Input field */
 .inputs {
   margin: 10px auto;
@@ -37,7 +41,7 @@ span{
   border:none;
 }
 
-.inputField:focus{
+.inputField:focus {
   border: none;
   border-radius: 0;
   border-style: none;
@@ -58,7 +62,7 @@ span{
 
 /* Word Count */
 .word-count-group{
-  display: inline-block;
+  /* display: inline-block; */
   padding: 5px;
 }
 
@@ -86,18 +90,17 @@ span{
   color: #333;
 }
 
-/* Performance Values */
-.performance-group{
-  float: right;
-  text-align: right;
-  padding-top: 15px;
+/* Author name */
+.author{
+  color: #f0ece3;
+  font-size: 16px;
+  visibility: hidden;
 }
 
+/* Performance Values */
 .performance-value{
-  padding: 0 10px;
   font-size: 16px;
 }
-
 
 /* Footer Section */
 footer{

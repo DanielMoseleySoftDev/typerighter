@@ -14,6 +14,8 @@ window.addEventListener("load", addSpans(50));
 function sentenceView() {
   const wordCountOptions = document.getElementById("wordCountGroup");
   const sentenceCountOptions = document.getElementById("sentenceCountGroup");
+  const author = document.getElementById("author");
+  author.style.visibility= "visible";
   wordCountOptions.style.display = "none";
   sentenceCountOptions.style.display = "inline-block";
   isWordTest = false;
@@ -22,6 +24,8 @@ function sentenceView() {
 function wordView() {
   const wordCountOptions = document.getElementById("wordCountGroup");
   const sentenceCountOptions = document.getElementById("sentenceCountGroup");
+  const author = document.getElementById("author");
+  author.style.visibility= "hidden";
   sentenceCountOptions.style.display = "none";
   wordCountOptions.style.display = "inline-block";
   isWordTest = true;
@@ -119,9 +123,25 @@ function removeSpans() {
 }
 
 function resetButton() {
-  var currentWordLength = wordArray.length - 1;
-  removeSpans();
-  addSpans(currentWordLength);
+  // If isWordTest, then we can reset based on the currentWordLength array
+  if (isWordTest) {
+    var currentWordLength = wordArray.length - 1;
+    removeSpans();
+    addSpans(currentWordLength);
+    // If !isWordTest, then we can manually trigger the onClick of the active radio button label
+  } else {
+    if ($("#sentenceOption1").hasClass("active")) {
+      $("#sentenceOption1").click();
+    } else if ($("#sentenceOption2").hasClass("active")) {
+      $("#sentenceOption2").click();
+    } else if ($("#sentenceOption3").hasClass("active")) {
+      $("#sentenceOption3").click();
+    } else if ($("#sentenceOption4").hasClass("active")) {
+      $("#sentenceOption4").click();
+    } else if ($("#sentenceOption5").hasClass("active")) {
+      $("#sentenceOption5").click();
+    }
+  }
 }
 
 document.querySelector("#inputField").addEventListener('keydown', e => {
